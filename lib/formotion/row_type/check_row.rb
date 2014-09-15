@@ -14,6 +14,7 @@ module Formotion
       # instantiate long-lived objects in them.
       # Maybe that logic should be moved elsewhere?
       def build_cell(cell)
+        cell.textLabel.font = BW::Font.new(row.font) if row.font
         cell.selectionStyle = self.row.selection_style || UITableViewCellSelectionStyleBlue
         update_cell_value(cell)
         observe(self.row, "value") do |old_value, new_value|

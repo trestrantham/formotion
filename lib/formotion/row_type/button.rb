@@ -11,6 +11,7 @@ module Formotion
       # for just this one UITableViewCell object, in order to
       # center it's labels horizontally.
       def build_cell(cell)
+        cell.textLabel.font = BW::Font.new(self.row.font) if self.row.font
         cell.selectionStyle = self.row.selection_style || UITableViewCellSelectionStyleBlue
         cell.swizzle(:layoutSubviews) do
           def layoutSubviews
